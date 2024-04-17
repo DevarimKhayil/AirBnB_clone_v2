@@ -1,11 +1,4 @@
 #!/usr/bin/python3
-#from models.base_model import BaseModel
-#
-#
-#class City(BaseModel):
-#    """ The city class, contains state ID and name """
-#    state_id = ""
-#    name = ""
 """ City Module for HBNB project """
 from models.base_model import Base
 from models.base_model import BaseModel

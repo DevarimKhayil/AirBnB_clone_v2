@@ -1,16 +1,16 @@
 -- setup_mysql_test.sql
 -- Script to configure the MySQL database for Airbnb clone project - Testing Environment
 
--- Create the test database if it does not exist
+-- Create the database if it doesn't exist
 CREATE DATABASE IF NOT EXISTS hbnb_test_db;
 
--- Create the user if it does not exist, else do nothing to avoid errors
+-- Create the user if it doesn't exist
 CREATE USER IF NOT EXISTS 'hbnb_test'@'localhost' IDENTIFIED BY 'hbnb_test_pwd';
 
--- Grant the test user full privileges on the test database
+-- Grant all privileges on hbnb_test_db to hbnb_test
 GRANT ALL PRIVILEGES ON hbnb_test_db.* TO 'hbnb_test'@'localhost';
 
--- Ensure the test user has SELECT privilege on the performance_schema database
+-- Grant SELECT privilege on performance_schema to hbnb_test
 GRANT SELECT ON performance_schema.* TO 'hbnb_test'@'localhost';
 
 -- Apply the changes made by the GRANT statement

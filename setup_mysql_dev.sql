@@ -1,20 +1,18 @@
 -- setup_mysql_dev.sql
 -- Script to configure the MySQL database for the Airbnb clone project
 
--- Create the database if it does not exist
+-- Create the database if it doesn't exist
 CREATE DATABASE IF NOT EXISTS hbnb_dev_db;
 
--- Drop the user if it exists to reset privileges
-DROP USER IF EXISTS 'hbnb_dev'@'localhost';
+-- Create the user if it doesn't exist
+CREATE USER IF NOT EXISTS 'hbnb_dev'@'localhost' IDENTIFIED BY 'hbnb_dev_pwd';
 
--- Create the user with the specified password if it does not exist
-CREATE USER 'hbnb_dev'@'localhost' IDENTIFIED BY 'hbnb_dev_pwd';
-
--- Grant all privileges on the development database to the development user
+-- Grant all privileges on hbnb_dev_db to hbnb_dev
 GRANT ALL PRIVILEGES ON hbnb_dev_db.* TO 'hbnb_dev'@'localhost';
 
--- Ensure the user has SELECT privilege on the performance_schema database
+-- Grant SELECT privilege on performance_schema to hbnb_dev
 GRANT SELECT ON performance_schema.* TO 'hbnb_dev'@'localhost';
+
 
 -- Apply the changes made by the GRANT statement
 FLUSH PRIVILEGES;
