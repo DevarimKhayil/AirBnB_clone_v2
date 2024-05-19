@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HBNB</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-footer.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles/6-filters.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1><img src="../static/images/logo.png" alt="HBNB logo"></h1>
+                </div>
+                <div class="col-md-4">
+                    <div class="user-info">
+                        <img src="../static/images/icon.png" alt="User icon">
+                        <span>Guest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h1>States</h1>
+        <ul>
+            {% for state in states %}
+                <li>{{ state.id }}: <b>{{ state.name }}</b>
+                    <ul>
+                        {% for city in state.cities %}
+                            <li>{{ city.id }}: <b>{{ city.name }}</b></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+        <h1>Amenities</h1>
+        <ul>
+            {% for amenity in amenities %}
+                <li>{{ amenity.id }}: <b>{{ amenity.name }}</b></li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>&copy; 2024 HBNB - Holberton School</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
