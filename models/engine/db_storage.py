@@ -18,7 +18,7 @@ class DBStorage:
     """Represents a database storage engine.
     Attributes:
         __engine: The SQLAlchemy engine.
-        __session: The SQLAlchemy session.
+        __session: The SQLAlchemy scoped session.
     """
     __engine = None
     __session = None
@@ -70,10 +70,9 @@ class DBStorage:
         from models.review import Review
         Base.metadata.create_all(self.__engine)
         session_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
-        Session = scoped_session(session_factory)
-        self.__session = Session()
+        self.__session = scoped_session(session_factory)
 
     def close(self):
-        """Call remove() method on the private session attribute."""
+        """Call remove() method on the scoped session."""
         self.__session.remove()
 
